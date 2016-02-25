@@ -1,0 +1,28 @@
+
+//$navbar-default-bg: #fff;
+//$navbar-inverse-bg: #000077 !default;
+//$navbar-inverse-color: #000077 !default;
+
+//$navbar-default-link-color:                #000077 !default;
+//$navbar-inverse-link-color:                #fff !default;
+//$navbar-default-link-hover-color:          #f00 !default;
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+//body {
+//  padding-top: $navbar-height + 20px;
+//}
+
+$menu-bg: rgba(255,255,255,0.95);
+$menu-color-inverse: #fff;
+//$menu-bg-inverse: #000077;
+//$menu-bg-inverse: #312312;
+//$menu-bg-inverse: #302510;
+$menu-bg-inverse: #251030;
+$menu-hover: #f00;
+
+@import "app-common";
+
+

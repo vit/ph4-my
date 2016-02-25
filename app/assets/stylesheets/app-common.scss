@@ -1,0 +1,68 @@
+
+body {
+  padding-top: $navbar-height + 20px;
+}
+
+
+.navbar {
+    background-color: $menu-bg;
+    li {
+        //color: #ffffff;
+        a {
+            color: $menu-bg-inverse !important;
+            font-family: 'Verdana', sans-serif;
+            &:hover {
+                color: $menu-hover !important;
+            }
+
+        }
+        &.active > a {
+            background-color: $menu-bg-inverse !important;
+            color: $menu-color-inverse !important;
+            &:hover {
+                color: $menu-hover !important;
+            }
+
+        }
+
+    }
+}
+
+.navbar-form .input-group {
+    input {
+        background-color: rgba(255,255,255,0.5);
+    }
+    button {
+        background-color: rgba(255,255,255,0.5);
+    }
+}
+
+
+.jumbotron {
+        color: $menu-color-inverse;
+//      text-shadow: -1px -1px 0px #000000;
+        background-color: $menu-bg-inverse;
+        border-radius: 0px !important;
+        h1 {
+            text-align: center;
+            font-weight: 100;
+            margin-top: 0.7em;
+            margin-bottom: 0.7em;
+        }
+        h4 {
+            text-align: center;
+            font-weight: 100;
+            text-transform: uppercase;
+            font-size: 140%;
+        }
+        p {
+            text-align: center;
+            font-weight: 100;
+            max-width: 35em;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 130%;
+        }
+}
+
+
