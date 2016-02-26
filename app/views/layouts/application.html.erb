@@ -36,9 +36,9 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <% if user_signed_in? %>
-            <li><%= current_user.email %></li>
-          <% end %>
+          <%# if user_signed_in? %>
+            <li><%#= current_user.email %></li>
+          <%# end %>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -46,6 +46,20 @@
       </div>
     </div>
   </nav-->
+
+
+  <!--div class="container" style="height: 200px; background-color: #aaaaff">
+  
+  wrtq ert wet wte
+ryujnr tqjert qihert qherbtoq erbt qouewrbqwuehrbq ireuthbqrieuth qbreiut qbweiru hbriquwehrb iqwuer bqiweur hqbwei uqwebr iquwehr bqiweurqbweir quewbrt iquewty qiweut qirue tqiuryt qweuryqewurtqy reuytq iewutq ierutq ierutq iruet qeriut wierutgwrt
+wrtq ert wet wte
+<br><br><br>
+w tyrty eytu euy eutyuey ue
+
+  </div-->
+
+
+  
   <%= render 'layouts/nav' %>
   <div class="container">
     <% flash.each do |name, msg| %>
@@ -55,7 +69,11 @@
       <% end %>
     <% end %>
 
-    <%= yield %>
   </div>
+  
+    <%= yield %>
+  
+
+  
 </body>
 </html>

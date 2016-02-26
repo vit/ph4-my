@@ -1,6 +1,23 @@
 
 
+<div class="container">
 
-rt ertw ert wetywt wrt
 
-<%= current_user.inspect %>
+<!--ol class="breadcrumb">
+  <li><a href="<%= ph_link :home %>">IPACS</a></li>
+  <li class="active">My</li>
+</ol-->
+
+</div>
+
+
+<% if user_signed_in? %>
+<div class="container">
+    <%= current_user.inspect %>
+</div>
+<% else %>
+    <%#= render partial: 'blk/jumbotron_1', locals: {title: 'IPACS / My', subtitle: 'wrtqwrtqwr qwr wrqwr', text: 'wrqwrqw'} %>
+    <%#= render partial: 'index_unregistered' %>
+<% end %>
+
+

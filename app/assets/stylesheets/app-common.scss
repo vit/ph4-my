@@ -1,14 +1,45 @@
 
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,700,400italic,100italic&subset=latin,cyrillic);
+//@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic);
+//@import url(https://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,cyrillic);
+//@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic&subset=latin,cyrillic);
+//@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,700&subset=latin,cyrillic&subset=latin,cyrillic);
+
+
 body {
+    font-family: 'Roboto', sans-serif;
+//    font-family: 'Open Sans', sans-serif;
+//    font-family: 'Roboto Condensed', sans-serif;
+//    font-family: 'Roboto Slab', serif;
+//    font-family: 'Verdana', sans-serif;
   padding-top: $navbar-height + 20px;
 }
 
 
+.navbar-header {
+    a.navbar-brand {
+//            color: #00f !important;
+            color: $menu-bg-inverse !important;
+            font-family: 'Verdana', sans-serif;
+            &:hover {
+                color: $menu-hover !important;
+            }
+    }
+}
+
+
 .navbar {
+    //width: 100%;
+    //position: fixed;
+    //top: 50;
     background-color: $menu-bg;
-    li {
+    font-family: 'Verdana', sans-serif;
+    li, .navbar-text, .navbar-brand {
         //color: #ffffff;
+        color: $menu-bg-inverse !important;
         a {
+//            color: #00f !important;
             color: $menu-bg-inverse !important;
             font-family: 'Verdana', sans-serif;
             &:hover {
@@ -17,8 +48,10 @@ body {
 
         }
         &.active > a {
-            background-color: $menu-bg-inverse !important;
-            color: $menu-color-inverse !important;
+//            background-color: $menu-bg-inverse !important;
+//            color: $menu-color-inverse !important;
+            background-color: rgba(255,255,255,0) !important;
+            border-bottom: solid 2px $menu-bg-inverse;
             &:hover {
                 color: $menu-hover !important;
             }
@@ -29,16 +62,49 @@ body {
 }
 
 .navbar-form .input-group {
-    input {
-        background-color: rgba(255,255,255,0.5);
-    }
-    button {
-        background-color: rgba(255,255,255,0.5);
+    input, button { background-color: rgba(255,255,255,0.5); }
+}
+
+
+.breadcrumb {
+    li a {
+        color: $menu-bg-inverse !important;
+        &:hover {
+            color: $menu-hover !important;
+        }
     }
 }
 
 
 .jumbotron {
+        color: $menu-color-inverse;
+//      text-shadow: -1px -1px 0px #000000;
+        background-color: $menu-bg-inverse;
+        border-radius: 0px !important;
+        h1 {
+            text-align: center;
+            font-weight: 100;
+            margin-top: 0.7em;
+            margin-bottom: 0.7em;
+        }
+        h4 {
+            text-align: center;
+            font-weight: 100;
+            text-transform: uppercase;
+            font-size: 140%;
+        }
+        p {
+            text-align: center;
+            font-weight: 100;
+            max-width: 35em;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 130%;
+        }
+}
+
+.jumbotron_2 {
+        min-height: 100vh;
         color: $menu-color-inverse;
 //      text-shadow: -1px -1px 0px #000000;
         background-color: $menu-bg-inverse;

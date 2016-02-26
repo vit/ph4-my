@@ -2,17 +2,72 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-//body {
-//  padding-top: $navbar-height + 20px;
-//}
 
-$menu-bg: rgba(255,255,255,0.95);
+
+//$menu-bg: rgba(#FFC673,0.95);
+//$menu-color-inverse: #fff;
+//$menu-bg-inverse: #A66200;
+//$menu-hover: #fff;
+
+
+$menu-bg: rgba(#fff,0.95);
 $menu-color-inverse: #fff;
-$menu-bg-inverse: #000077;
+$menu-bg-inverse: #A66200;
+//$menu-bg-inverse: #f00;
+$menu-hover: #f00;
+
+
+
+//$menu-bg: rgba(255,255,200,0.9);
+//$menu-bg: rgba(#FFBA00,0.9);
+//$menu-bg: rgba(#FFD973,0.9);
+//$menu-bg: rgba(#A67900,0.9);
+
+
+//$menu-bg-inverse: #000077;
+//$menu-bg-inverse: #FFBA00;
+//$menu-bg-inverse: #A67900;
+
+
 //$menu-bg-inverse: #312312;
 //$menu-bg-inverse: #302510;
 //$menu-bg-inverse: #251030;
-$menu-hover: #f00;
+//$menu-hover: #f00;
 
 @import "app-common";
+
+body {
+//    padding-top: $navbar-height + 20px;
+    padding-top: 0;
+}
+
+
+.affix {
+//    background-color: #ffff33;
+//    border: solid 2px red;
+    position: fixed;
+    top: 0;
+    
+//    position: static;
+    width: 100%;
+
+}
+
+@media (max-width: 767px) {
+  .affix {
+    position: static;
+    width: auto;
+    top: 0;
+  }
+}
+
+.affix-top {
+//    background-color: #ff33ff;
+//    border: solid 2px green;
+
+    position: static;
+    //width: auto;
+    //top: 300;
+}
+
 
