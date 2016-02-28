@@ -95,3 +95,23 @@
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+
+$('#password_field, #password_confirmation_field').change(
+  function() {
+    var pass2=$('#password_field').val();
+    var pass1=$('#password_confirmation_field').val();
+    if(pass1!=pass2) {
+//      console.log("Passwords Don't Match");
+	    $('#password_confirmation_field')[0].setCustomValidity("Passwords Don't Match");
+    } else {
+//      console.log('Passwords Match');
+  	  $('#password_confirmation_field')[0].setCustomValidity('');	 
+    }
+  }
+);
+
+</script>
+
