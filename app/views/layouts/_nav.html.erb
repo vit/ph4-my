@@ -4,8 +4,8 @@
 <div class="container">
           <p class="nnavbar-text pull-right user-name-above" style="margin-right: 0;">
             <!--span class="user-name"><%= current_user.full_name %></span-->
-            <%= link_to(edit_user_registration_path, {}, {class: 'user-name-above'}) do -%><%= current_user.full_name %><% end -%>
-            <!--| <%#= link_to(edit_user_registration_path) do -%>Edit<%# end -%> -->
+            <%= link_to(u_path(current_user), {}, {class: 'user-name-above'}) do -%><%= current_user.full_name %><% end -%>
+            | <%= link_to(edit_user_registration_path) do -%>Edit<% end -%>
             | <%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%>
           </p>
 </div>
