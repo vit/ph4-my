@@ -4,7 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def name
-    "<"+email+">"
+    validates :fname, presence: true
+    validates :lname, presence: true
+
+
+  def full_name
+#    fname.to_s + ' ' + mname.to_s + ' ' + lname.to_s + ' ' + "<"+email+">"
+#    "#{fname} #{mname} #{lname} <#{email}>"
+
+    "#{fname} #{mname} #{lname}".strip # <#{email}>"
   end
 end

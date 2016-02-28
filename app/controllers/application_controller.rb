@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :ph_link
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+
 protected
   def ph_link name
     name = name.to_sym
@@ -17,4 +20,12 @@ protected
     }[name]
   end
 
+  def configure_permitted_parameters
+    #devise_parameter_sanitizer.permit(:sign_up, keys: [:fname, :lname])
+    devise_parameter_sanitizer.for(:sign_up)        << :fname << :mname << :lname
+    #devise_parameter_sanitizer.for(:sign_in)        << :username
+    devise_parameter_sanitizer.for(:account_update)        << :fname << :mname << :lname
+  end
+
 end
+

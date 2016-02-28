@@ -1,6 +1,27 @@
 
+
+<% if user_signed_in? %>
+<div class="container">
+          <p class="nnavbar-text pull-right user-name-above" style="margin-right: 0;">
+            <!--span class="user-name"><%= current_user.full_name %></span-->
+            <%= link_to(edit_user_registration_path, {}, {class: 'user-name-above'}) do -%><%= current_user.full_name %><% end -%>
+            <!--| <%#= link_to(edit_user_registration_path) do -%>Edit<%# end -%> -->
+            | <%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%>
+          </p>
+</div>
+<% end %>
+
 <nav class="navbar navbar-default nnavbar-inverse nnavbar-fixed-top" ddata-spy="affix" ddata-offset-top="200">
   <div class="container">
+    <!--div class="row">
+<% if user_signed_in? %>
+          <p class="navbar-text navbar-right" style="margin-right: 0;">
+            <span class="user-name"><%= current_user.full_name %></span>
+            | <%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%>
+          </p>
+<% end %>
+    </div-->
+    <!--div class="row"-->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -12,22 +33,15 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
 
+<!--
           <% if user_signed_in? %>
           <p class="navbar-text navbar-right">
-            <%= current_user.name %>
-            (
-              <%= link_to(destroy_user_session_path, :method => :delete) do %>
-                <span cclass="glyphicon glyphicon-log-out"></span> Logout
-              <% end %>
-            )
+            <span class="user-name"><%= current_user.full_name %></span>
+            | <%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%>
           </p>
           <% else %>
-          <!--p class="navbar-text navbar-right">
-              <%= link_to(new_user_session_path) do %>
-                <span cclass="glyphicon glyphicon-log-in"></span> Login
-              <% end %>
-          </p-->
           <% end %>
+-->
 
       <ul class="nav navbar-nav navbar-right">
             <li><a href="https://station.locomotive.works/_app/vit/preview/">Home</a></li>
@@ -38,7 +52,6 @@
             <li><a href="http://coms.physcon.ru">CoMS</a></li>
             <li class="active"><a href="https://ph4-my-vit2.c9users.io/">My</a></li>
       </ul>
-
 
         <!--div class="col-sm-3 col-md-3 pull-right">
         <form class="navbar-form search" role="search">
@@ -51,6 +64,7 @@
         </form>
         </div-->
     </div>
+    <!--/div-->
   </div>
 </nav>
 
