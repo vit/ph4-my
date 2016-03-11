@@ -1,0 +1,14 @@
+<div style="padding: 0 auto; margin: 0; bborder: solid thin red;">
+    <% if user_signed_in? %>
+<div class="container" style="padding: 0 auto; margin: 0 auto; bborder: solid thin green;">
+          <p class="nnavbar-text pull-right user-name-above" style="margin-right: 0; margin: 0;">
+            <%= link_to(u_url(current_user), {}, {class: "user-name-above"}) do -%><%= current_user.full_name %><% end -%>
+<!--            | <%= link_to(edit_user_registration_url) do -%>Edit<% end -%>
+            | <%= link_to(destroy_user_session_url, :method => :delete) do -%>Logout<% end -%> -->
+          </p>
+            <!--p>
+                <%#= cookies.map.to_a %>
+            </p-->
+</div>
+    <% end %>
+</div>

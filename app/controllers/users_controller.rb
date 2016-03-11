@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  protect_from_forgery except: :user_widget
+  
   # GET /users
   # GET /users.json
   def index
     @users = User.all
+  end
+
+  def user_widget
+    respond_to do |format|
+        format.js
+    end
   end
 
   # GET /users/1

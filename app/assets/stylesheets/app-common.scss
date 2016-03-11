@@ -39,6 +39,7 @@ body {
 
 
 .navbar {
+//    margin: 0;
     .navbar-header {
 //        border: solid thin red;
 //        margin: 0;
@@ -73,11 +74,13 @@ body {
             }
 
         }
+//        .current_page_item a, .current-page-ancestor a {
+//        &.active > a, .current-page-ancestor a, .current_page_item a  {
         &.active > a {
 //            background-color: $menu-bg-inverse !important;
 //            color: $menu-color-inverse !important;
             background-color: rgba(255,255,255,0) !important;
-            border-bottom: solid 2px $menu-bg-inverse;
+            border-bottom: solid 2px $menu-bg-inverse !important;
             &:hover {
                 color: $menu-hover !important;
             }
@@ -108,6 +111,7 @@ body {
 
 
 .jumbotron {
+    margin: 0px;
         color: $menu-color-inverse;
 //      text-shadow: -1px -1px 0px #000000;
         background-color: $menu-bg-inverse;
