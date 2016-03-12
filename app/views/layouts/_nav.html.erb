@@ -1,7 +1,7 @@
 
 
 <% if user_signed_in? %>
-<div class="container">
+<div class="container user-top-panel">
           <p class="nnavbar-text pull-right user-name-above" style="margin-right: 0;">
             <!--span class="user-name"><%= current_user.full_name %></span-->
             <%= link_to(u_path(current_user), {}, {class: 'user-name-above'}) do -%><%= current_user.full_name %><% end -%>

@@ -56,6 +56,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 #gem 'sass-rails', '>= 3.2'
 #gem 'autoprefixer-rails'
+gem 'bootswatch-rails'
 
 gem 'aasm'
 
@@ -71,5 +72,4 @@ gem 'yomu'
 group :development do
   gem 'i18n-debug'
 end
-
 

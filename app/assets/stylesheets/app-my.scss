@@ -1,14 +1,35 @@
 
+//Import bootstrap-sprockets
 @import "bootstrap-sprockets";
+
+// Import cerulean variables
+//@import "bootswatch/cerulean/variables";
+//@import "bootswatch/journal/variables";
+@import "bootswatch/spacelab/variables";
+//@import "bootswatch/cyborg/variables";
+//@import "bootswatch/sandstone/variables";
+//@import "bootswatch/yeti/variables";
+
+// Then bootstrap itself
 @import "bootstrap";
 
+// Bootstrap body padding for fixed navbar
+//body { padding-top: 60px; }
+
+// And finally bootswatch style itself
+//@import "bootswatch/cerulean/bootswatch";
+//@import "bootswatch/simplex/bootswatch";
+//@import "bootswatch/journal/bootswatch";
+@import "bootswatch/spacelab/bootswatch";
+//@import "bootswatch/cyborg/bootswatch";
+//@import "bootswatch/sandstone/bootswatch";
+//@import "bootswatch/yeti/bootswatch";
+
+// Whatever application styles you have go last
+//@import "base";
 
 
-//$menu-bg: rgba(#FFC673,0.95);
-//$menu-color-inverse: #fff;
-//$menu-bg-inverse: #A66200;
-//$menu-hover: #fff;
-
+/*
 
 $menu-bg: rgba(#fff,0.95);
 $menu-color-inverse: #fff;
@@ -17,40 +38,20 @@ $menu-bg-inverse: #A66200;
 $menu-hover: #f00;
 
 
-
-//$menu-bg: rgba(255,255,200,0.9);
-//$menu-bg: rgba(#FFBA00,0.9);
-//$menu-bg: rgba(#FFD973,0.9);
-//$menu-bg: rgba(#A67900,0.9);
-
-
-//$menu-bg-inverse: #000077;
-//$menu-bg-inverse: #FFBA00;
-//$menu-bg-inverse: #A67900;
-
-
-//$menu-bg-inverse: #312312;
-//$menu-bg-inverse: #302510;
-//$menu-bg-inverse: #251030;
-//$menu-hover: #f00;
-
 @import "app-common";
+
+*/
 
 body {
 //    padding-top: $navbar-height + 20px;
-    padding-top: 0;
+//    padding-top: 0;
 }
 
 
 .affix {
-//    background-color: #ffff33;
-//    border: solid 2px red;
     position: fixed;
     top: 0;
-    
-//    position: static;
     width: 100%;
-
 }
 
 @media (max-width: 767px) {
@@ -62,12 +63,7 @@ body {
 }
 
 .affix-top {
-//    background-color: #ff33ff;
-//    border: solid 2px green;
-
     position: static;
-    //width: auto;
-    //top: 300;
 }
 
 
