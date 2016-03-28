@@ -1,3 +1,11 @@
+<%= current_user.inspect %>
+<% session['my_session_var'] = 'my_session_var_value_'+rand(20).to_s %>
+<%# session['my_current_user'] = current_user.id %>
+<% session.keys.each do |k| %>
+<div>
+  <%= k %>: <%= session[k] %>
+</div>
+<% end %>
 
 
 <% if user_signed_in? %>

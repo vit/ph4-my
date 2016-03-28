@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :u, :controller=>"users", only: [:show] do
     collection do
       get 'user_widget'
+#      post 'find_by_email_password'
+      post 'remote_auth'
     end
   end
 

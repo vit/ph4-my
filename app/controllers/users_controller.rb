@@ -13,6 +13,52 @@ class UsersController < ApplicationController
         format.js
     end
   end
+#  def find_by_email_password
+  def remote_auth
+#    p params
+    op = params[:op]
+    data = params['data'] || {}
+    case op
+    when 'authenticate_by_email'
+#      p "authenticate_by_email"
+      user = User.authenticate_by_email data['email'], data['password']
+    when 'serialize_from_session'
+#      p "serialize_from_session"
+      #user = User.authenticate_by_session data['key'], data['salt']
+      user = User.serialize_from_session data['key'], data['salt']
+    when 'serialize_from_cookie'
+#      p "serialize_from_cookie"
+      user = User.serialize_from_cookie(*data['args'])
+    when 'serialize_into_cookie'
+#      p "serialize_into_cookie"
+      result_array = User.serialize_into_cookie(User.find(data['id']))
+    when 'remember_me!'
+#      p "remember_me!"
+      user = User.find(data['id'])
+      user.remember_me!
+      remember_data = {
+        remember_token: user.respond_to?(:remember_token) ? user.remember_token : nil,
+        remember_created_at: user.remember_created_at
+      }
+    when 'forget_me!'
+#      p "forget_me!"
+      user = User.find(data['id'])
+      user.forget_me!
+      #remember_data = {
+      #}
+    end
+#    puts user.inspect
+    respond_to do |format|
+#        format.js
+#        format.json { render json: {sid: @user.sid, full_name: @user.full_name, url: u_url(@user)}}
+        format.json { render json: {
+          user_data: user ? {id: user.id, email: user.email, fname: user.fname, mname: user.mname, lname: user.lname, salt: user.encrypted_password[0,29]} : nil,
+          result_array: result_array ? result_array : nil,
+          remember_data: remember_data ? remember_data : nil
+        }}
+    end
+  end
+
 
   # GET /users/1
   # GET /users/1.json
