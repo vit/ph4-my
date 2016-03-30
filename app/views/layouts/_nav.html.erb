@@ -1,66 +1,155 @@
-<%= current_user.inspect %>
-<% session['my_session_var'] = 'my_session_var_value_'+rand(20).to_s %>
-<%# session['my_current_user'] = current_user.id %>
-<% session.keys.each do |k| %>
-<div>
-  <%= k %>: <%= session[k] %>
-</div>
-<% end %>
+<% if 1 %>
+    <nav role="navigation" class="navbar navbar-default nnavbar-fixed-top">
+      <div class="container">
+        
+        <!-- Title -->
+        <div class="navbar-header pull-left">
+          <a class="navbar-brand" href="http://my.physcon.ru/">My IPACS</a>
+        </div>
+        
+        <!-- 'Sticky' (non-collapsing) right-side menu item(s) -->
+        <div class="navbar-header pull-right">
+          <ul class="nav pull-left">
+            <!-- This works well for static text, like a username -->
+            <% if user_signed_in? %>
+              <li class="navbar-text pull-left"><%= current_user.full_name %></li>
+              <!--li class="navbar-text pull-left"><%= link_to(u_path(current_user), {}, {cclass: 'user-name-above'}) do -%>My profile<% end -%></li-->
+            <% end %>
+            <!-- Add any additional bootstrap header items.  This is a drop-down from an icon -->
 
+<li rrole="presentation" class="dropdown pull-right">
+    <a class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 5px;" href="#" role="button" aaria-haspopup="true" aaria-expanded="false">
+      <i class="fa fa-bars ffa-external-link"></i><!--span class="caret"--></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="http://physcon.ru/">IPACS Home</a></li>
+      <li><a href="http://coms.physcon.ru">CoMS</a></li>
+      <li><a href="http://lib.physcon.ru">Library</a></li>
+    </ul>
+</li>
 
 <% if user_signed_in? %>
-<div class="container user-top-panel">
-          <p class="nnavbar-text pull-right user-name-above" style="margin-right: 0;">
-            <!--span class="user-name"><%= current_user.full_name %></span-->
-            <%= link_to(u_path(current_user), {}, {class: 'user-name-above'}) do -%><%= current_user.full_name %><% end -%>
-            | <%= link_to(edit_user_registration_path) do -%>Edit<% end -%>
-            | <%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%>
-          </p>
-</div>
+<li class="dropdown pull-right">
+    <a class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 5px;" href="#" role="button" aaria-haspopup="true" aaria-expanded="false" aaria-expanded="true">
+      <i class="fa fa-user"></i><!--span class="caret"--></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to(u_path(current_user), {}, {class: 'user-name-above'}) do -%>My profile<% end -%></li>
+      <li><%= link_to(edit_user_registration_path) do -%>Edit my data<% end -%></li>
+      <li><%= link_to(u_index_path) do -%>Users list<% end -%></li>
+      <li><%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%></li>
+    </ul>
+</li>
+<% else %>
+<li class="dropdown pull-right">
+    <a class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 5px;" href="#" role="button" aaria-haspopup="true" aaria-expanded="false" aaria-expanded="true">
+      <i class="fa fa-user"></i><!--span class="caret"--></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to(new_user_session_path, style: "margin-top: 5px;") do -%>Login<% end -%></li>
+      <li><%= link_to(u_index_path) do -%>Users list<% end -%></li>
+    </ul>
+</li>
+<!--li role="presentation" class="ddropdown pull-right">
+      <%#= link_to(new_user_session_path, style: "margin-top: 5px;") do -%>Login<%# end -%>
+</li-->
 <% end %>
+
+
+          </ul>
+
+          <!-- Required bootstrap placeholder for the collapsed menu -->
+          <!--button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button-->
+        </div>
+
+        <!-- The Collapsing items            navbar-left or navbar-right -->
+        <div class="collapse navbar-collapse navbar-left">
+          <!--                      pull-right keeps the drop-down in line -->
+          <!--ul class="nav navbar-nav pull-right">
+            <li><a href="/news">News</a></li>
+            <li><a href="/Shop">Shop</a></li>
+          </ul-->
+        </div>
+
+        <!-- Additional navbar items -->
+        <div class="collapse navbar-collapse navbar-right">
+          <!--                      pull-right keeps the drop-down in line -->
+          <!--ul class="nav navbar-nav pull-right">
+            <li><a href="/locator">Locator</a></li>
+            <li><a href="/extras">Extras</a></li>
+          </ul-->
+        </div>
+      </div>
+    </nav>
+
+<% end %>
+
+
+
+<% if false %>
+<%#= current_user.inspect %>
+<%# session['my_session_var'] = 'my_session_var_value_'+rand(20).to_s %>
+<%# session.keys.each do |k| %>
+<!--div>
+  <%#= k %>: <%#= session[k] %>
+</div-->
+<%# end %>
+<% end %>
+
+<% if false %>
 
 <nav class="navbar navbar-default nnavbar-inverse nnavbar-fixed-top" ddata-spy="affix" ddata-offset-top="200">
   <div class="container">
-    <!--div class="row">
-<% if user_signed_in? %>
-          <p class="navbar-text navbar-right" style="margin-right: 0;">
-            <span class="user-name"><%= current_user.full_name %></span>
-            | <%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%>
-          </p>
-<% end %>
-    </div-->
     <!--div class="row"-->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <div class="navbar-header pull-left">
+      <!--button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <!--a class="navbar-brand" href="https://station.locomotive.works/_app/vit/preview/">IPACS</a-->
-      <a class="navbar-brand" href="http://physcon.ru/">IPACS</a>
+      </button-->
+      <a class="navbar-brand" href="http://my.physcon.ru/">My IPACS</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-
+    <!--div id="navbar" class="navbar-collapse collapse"-->
+    <div class="navbar-header pull-right">
+      <ul class="nav nnavbar-nav nnavbar-right pull-left">
 <!--
-          <% if user_signed_in? %>
-          <p class="navbar-text navbar-right">
-            <span class="user-name"><%= current_user.full_name %></span>
-            | <%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%>
-          </p>
-          <% else %>
-          <% end %>
--->
-
-      <ul class="nav navbar-nav navbar-right">
-            <!--li><a href="https://station.locomotive.works/_app/vit/preview/">Home</a></li-->
             <li><a href="http://physcon.ru/">Home</a></li>
-            <!--li><a href="http://cap.physcon.ru">CAP Journal</a></li-->
             <li><a href="http://cap.physcon.ru">Journal</a></li>
             <li><a href="http://physcon.ru/events">Events</a></li>
             <li><a href="http://lib.physcon.ru">Library</a></li>
             <li><a href="http://coms.physcon.ru">CoMS</a></li>
             <li class="active"><a href="https://ph4-my-vit2.c9users.io/">My</a></li>
+-->
+
+
+<% if user_signed_in? %>
+<li role="presentation" class="dropdown pull-right">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aaria-haspopup="true" aaria-expanded="false">
+      <i class="fa fa-user"></i> <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to(u_path(current_user), {}, {class: 'user-name-above'}) do -%>My profile<% end -%></li>
+      <li><%= link_to(edit_user_registration_path) do -%>Edit my data<% end -%></li>
+      <li><%= link_to(u_index_path) do -%>Users list<% end -%></li>
+      <li><%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%></li>
+    </ul>
+</li>
+<% else %>
+<% end %>
+
+<li rrole="presentation" class="dropdown pull-right">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aaria-haspopup="true" aaria-expanded="false">
+      <i class="fa fa-external-link"></i> <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="http://physcon.ru/">IPACS Home</a></li>
+      <li><a href="http://coms.physcon.ru">CoMS</a></li>
+      <li><a href="http://lib.physcon.ru">Library</a></li>
+    </ul>
+</li>
+
+
       </ul>
 
         <!--div class="col-sm-3 col-md-3 pull-right">
@@ -78,3 +167,41 @@
   </div>
 </nav>
 
+<!--div class="container user-top-panel">
+<% if user_signed_in? %>
+          <p class="nnavbar-text pull-right user-name-above" style="margin-right: 0;">
+            <%= link_to(u_path(current_user), {}, {class: 'user-name-above'}) do -%><%= current_user.full_name %><% end -%>
+            | <%= link_to(edit_user_registration_path) do -%>Edit<% end -%>
+            | <%= link_to(destroy_user_session_path, :method => :delete) do -%>Logout<% end -%>
+            | <%= link_to(u_index_path) do -%>List<% end -%>
+          </p>
+<% else %>
+          <p class="nnavbar-text pull-right user-name-above" style="margin-right: 0;">
+            <%= link_to(new_user_session_path) do -%>Login<% end -%>
+            | <%= link_to(u_index_path) do -%>List<% end -%>
+          </p>
+<% end %>
+</div-->
+
+<% end %>
+
+
+<script>
+    $('.dropdown').hover(
+        function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn();
+        }, 
+        function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
+        }
+    );
+
+    $('.dropdown-menu').hover(
+        function() {
+            $(this).stop(true, true);
+        },
+        function() {
+            $(this).stop(true, true).delay(200).fadeOut();
+        }
+    );
+</script>

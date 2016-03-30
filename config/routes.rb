@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   devise_for :users
-  resources :u, :controller=>"users", only: [:show] do
+  resources :u, :controller=>"users", only: [:show,:index] do
     collection do
       get 'user_widget'
 #      post 'find_by_email_password'
