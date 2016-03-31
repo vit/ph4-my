@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 #  devise :database_authenticatable, :rememberable #, :registerable,
 #         :recoverable, :trackable, :validatable
 
+    mount_uploader :avatar, AvatarUploader
+
     validates :fname, presence: true
     validates :lname, presence: true
 

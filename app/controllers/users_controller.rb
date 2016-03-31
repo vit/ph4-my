@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :upload_avatar, :drop_avatar]
   protect_from_forgery except: :user_widget
   
   # GET /users
@@ -52,7 +52,15 @@ class UsersController < ApplicationController
 #        format.js
 #        format.json { render json: {sid: @user.sid, full_name: @user.full_name, url: u_url(@user)}}
         format.json { render json: {
-          user_data: user ? {id: user.id, email: user.email, fname: user.fname, mname: user.mname, lname: user.lname, salt: user.encrypted_password[0,29]} : nil,
+          user_data: user ? {
+            id: user.id,
+            email: user.email,
+            fname: user.fname,
+            mname: user.mname,
+            lname: user.lname,
+            salt: user.encrypted_password[0,29],
+            avatar_url: request.base_url + user.avatar_url
+          } : nil,
           result_array: result_array ? result_array : nil,
           remember_data: remember_data ? remember_data : nil
         }}
@@ -116,6 +124,23 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upload_avatar
+#    current_user.remove_avatar!
+    current_user.avatar = params[:user][:avatar] # Assign a file like this, or
+    current_user.save!
+    @user.reload
+    respond_to do |format|
+      #format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.js
+    end
+  end
+  def drop_avatar
+#    puts "!!!!!!!!!"
+#    puts params
+    current_user.remove_avatar!
+    @user.reload
   end
 
   private

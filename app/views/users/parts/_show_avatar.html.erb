@@ -1,0 +1,39 @@
+<div id="useravatar">
+<%=
+    image_tag(@user.avatar? ? @user.avatar_url : "https://placeholdit.imgix.net/~text?txtsize=17&bg=eeeeee&txt=180%C3%97180&w=180&h=180", :class => "media-object img-circle iimg-thumbnail",
+        style: "width: 180px; height: 180px;"
+    )
+%>
+<!--div class="text-center" style="border: solid 5px red; position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; margin-left: auto; margin-right: auto;"-->
+
+<% if current_user==@user %>
+
+<div>
+    <%= form_for @user, url: upload_avatar_u_path(@user), method: :post, remote: true, html: { multipart: true, id: :fileuploadform } do |f| %>
+        <%= f.file_field :avatar, id: :fileupload, style: 'display: none;', accept: "image/jpeg,image/png,image/gif",
+            #oonchange: "this.form.submit();",
+            onchange: "$('#fileuploadform').submit();"
+        %>
+        <%= f.hidden_field :avatar_cache %>
+        <%#= f.submit %>
+    <% end %>
+
+    <div class="btn-group">
+        <%= link_to drop_avatar_u_path(@user),
+            class: "btn btn-danger btn-sm",
+            method: :delete,
+            remote: true,
+            data: {confirm: "Are you sure?"},
+            title: "Delete current avatar" do
+        %>
+            <i class="fa fa-remove"></i>
+        <% end %>
+        <%= link_to "#", class: "btn btn-primary btn-sm", onclick: "$('input[id=fileupload]').click(); return false;", title: "Upload new avatar" do %>
+            <i class="fa fa-upload"></i>
+        <% end %>
+    </div>
+</div>
+
+<% end %>
+
+</div>

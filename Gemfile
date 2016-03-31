@@ -61,6 +61,7 @@ gem 'bootswatch-rails'
 gem 'aasm'
 
 gem 'carrierwave'
+gem "mini_magick"
 gem 'remotipart', '~> 1.2'
 gem 'yomu'
 

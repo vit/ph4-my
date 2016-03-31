@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 #      post 'find_by_email_password'
       post 'remote_auth'
     end
+    member do
+      delete 'drop_avatar'
+      post 'upload_avatar'
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
