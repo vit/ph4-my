@@ -75,3 +75,4 @@ group :development do
   gem 'meta_request'
 end
 
+gem "acts_as_follower"

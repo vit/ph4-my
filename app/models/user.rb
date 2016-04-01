@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
     mount_uploader :avatar, AvatarUploader
 
+    acts_as_followable
+    acts_as_follower
+
     validates :fname, presence: true
     validates :lname, presence: true
 

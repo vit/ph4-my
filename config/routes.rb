@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     member do
       delete 'drop_avatar'
       post 'upload_avatar'
+      post 'follow_toggle'
     end
   end
 

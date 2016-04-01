@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :upload_avatar, :drop_avatar]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :upload_avatar, :drop_avatar, :follow_toggle]
   protect_from_forgery except: :user_widget
   
   # GET /users
@@ -127,20 +127,33 @@ class UsersController < ApplicationController
   end
 
   def upload_avatar
-#    current_user.remove_avatar!
-    current_user.avatar = params[:user][:avatar] # Assign a file like this, or
-    current_user.save!
-    @user.reload
+    if @user==current_user && params[:user] && params[:user][:avatar]
+#     current_user.remove_avatar!
+      current_user.avatar = params[:user][:avatar] # Assign a file like this, or
+      current_user.save!
+      @user.reload
+    end
     respond_to do |format|
       #format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.js
     end
   end
   def drop_avatar
+    if @user==current_user
 #    puts "!!!!!!!!!"
 #    puts params
-    current_user.remove_avatar!
-    @user.reload
+      current_user.remove_avatar!
+      @user.reload
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+  def follow_toggle
+    current_user.following?(@user) ? current_user.stop_following(@user) : current_user.follow(@user)
+    respond_to do |format|
+      format.js { render :drop_avatar }
+    end
   end
 
   private
