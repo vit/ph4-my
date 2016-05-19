@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'user_widget'
 #      post 'find_by_email_password'
       post 'remote_auth'
+      post 'api'
     end
     member do
       delete 'drop_avatar'

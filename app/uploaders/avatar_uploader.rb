@@ -51,7 +51,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   def filename
-   "avatar"+File.extname(super)
+#   "avatar"+File.extname(super)
+   "avatar"+File.extname(super) rescue 'none.png'
   end
 
 end

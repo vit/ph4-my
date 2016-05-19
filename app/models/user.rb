@@ -27,4 +27,25 @@ class User < ActiveRecord::Base
 #        serialize_from_session(key, salt)
 #    end
 
+    def self.remote_api op, data={}
+        result = {}
+        if op && data
+            user = self.find(data['user_id'])
+            if user
+                result = user.send op.to_sym, data
+#                puts "!!!!!!!!!!!!!!!! remote_api"
+#                puts result
+#                result = [1,2,3]
+            end
+        end
+        result
+    end
+
+    def get_followed data
+        self.all_following.select { |r| r.class==User }.map { |r| r.slice :id, :full_name }
+    end
+    def get data
+#        puts "!!!!!!!!!!!! get"
+        self.slice :id, :email, :fname, :mname, :lname
+    end
 end

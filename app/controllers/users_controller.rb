@@ -67,6 +67,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def api
+    op = params[:op]
+    data = params['data'] || {}
+    result = User.remote_api op, data
+    respond_to do |format|
+        format.json { render json: {
+          result: result
+        }}
+    end
+  end
+
 
   # GET /users/1
   # GET /users/1.json
@@ -150,6 +161,7 @@ class UsersController < ApplicationController
     end
   end
   def follow_toggle
+#    puts "!!!!!!!!! follow !!!!!!!!"
     current_user.following?(@user) ? current_user.stop_following(@user) : current_user.follow(@user)
     respond_to do |format|
       format.js { render :drop_avatar }
