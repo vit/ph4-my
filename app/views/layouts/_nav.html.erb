@@ -9,14 +9,15 @@
         </div>
         
         <!-- 'Sticky' (non-collapsing) right-side menu item(s) -->
-        <div class="navbar-header pull-right">
+        <div class="navbar-header pull-right" style="margin: 0;">
           <ul class="nav pull-left">
             <!-- This works well for static text, like a username -->
             <% if user_signed_in? %>
-              <li class="navbar-text pull-left">
+              <li class="navbar-text pull-left" style="height: 40px; margin-top: 0; margin-bottom: 0; margin-right: 0px; ppadding-top: 0; padding-top: 0px; padding-bottom: 0px;">
                 <% if current_user.avatar? %>
                   <%= image_tag( current_user.avatar_url, :class => "mmedia-object img-circle iimg-thumbnail",
-                    style: "width: 24px; height: 24px; margin: 0px; padding: 0px;"
+#                    style: "width: 24px; height: 24px; margin: 0px; padding: 0px;"
+                    style: "width: 50px; height: 50px; margin: 0px; padding: 0px;"
                   ) %>&nbsp;
                 <% end %>
                 <%= current_user.full_name %>
