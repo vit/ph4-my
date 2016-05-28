@@ -4,7 +4,8 @@
         
         <!-- Title -->
         <div class="navbar-header pull-left">
-          <a class="navbar-brand" href="http://my.physcon.ru/">My IPACS</a>
+          <!--a class="navbar-brand" href="http://my.physcon.ru/">My IPACS</a-->
+          <a class="navbar-brand" href="<%= Rails.configuration.x.sites.my %>">My IPACS</a>
         </div>
         
         <!-- 'Sticky' (non-collapsing) right-side menu item(s) -->
@@ -29,9 +30,12 @@
       <i class="fa fa-bars ffa-external-link"></i><!--span class="caret"--></span>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="http://physcon.ru/">IPACS Home</a></li>
+      <!--li><a href="http://physcon.ru/">IPACS Home</a></li>
       <li><a href="http://coms.physcon.ru">CoMS</a></li>
-      <li><a href="http://lib.physcon.ru">Library</a></li>
+      <li><a href="http://lib.physcon.ru">Library</a></li-->
+      <li><a href="<%= Rails.configuration.x.sites.home %>">IPACS Home</a></li>
+      <li><a href="<%= Rails.configuration.x.sites.lib %>">Library</a></li>
+      <li><a href="<%= Rails.configuration.x.sites.my %>">My IPACS</a></li>
     </ul>
 </li>
 
@@ -115,7 +119,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button-->
-      <a class="navbar-brand" href="http://my.physcon.ru/">My IPACS</a>
+      <!--a class="navbar-brand" href="http://my.physcon.ru/">My IPACS</a-->
+      <a class="navbar-brand" href="<%= Rails.configuration.x.sites.my %>">My IPACS</a>
     </div>
     <!--div id="navbar" class="navbar-collapse collapse"-->
     <div class="navbar-header pull-right">

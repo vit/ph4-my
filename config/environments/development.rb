@@ -39,4 +39,19 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+
+config.action_mailer.delivery_method = :sendmail
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.default_options = {from: 'no-reply@physcon.ru'}
+
+
+  config.x.sites.home = 'http://physcon.ru'
+  config.x.sites.my = 'https://ph4-my-vit2.c9users.io'
+  config.x.sites.coms = 'https://ph4-coms-vit2.c9users.io'
+#  config.x.sites.lib = 'https://ph4-lib-vit2.c9users.io'
+  config.x.sites.lib = 'http://lib.physcon.ru'
+
+
 end
